@@ -10,11 +10,11 @@ def saveFile(bar):
     barname = bar.get_name()
     #info save
     try: 
-        os.mkdir(f"data")
+        os.mkdir(f"terminal_app/data")
     except FileExistsError: 
         pass
     try: 
-        os.mkdir(f"data/{barname}")
+        os.mkdir(f"terminal_app/data/{barname}")
     except FileExistsError: 
         pass
     bar_info = {
@@ -22,7 +22,7 @@ def saveFile(bar):
         "beerserve": bar.get_beer_serve(),
         "wineserve": bar.get_wine_serve()
         }
-    with open(f"data/{barname}/{barname}_info.json", "w") as json_file:
+    with open(f"terminal_app/data/{barname}/{barname}_info.json", "w") as json_file:
         json.dump(bar_info, json_file, indent=4)
     #menu save
     item_dict = []
@@ -70,7 +70,7 @@ def saveFile(bar):
                 "recipe": item.get_mix_recipe()
             }
         item_dict.append(item_json)
-    with open(f"data/{barname}/{barname}_menu.json", "w") as json_file:
+    with open(f"terminal_app/data/{barname}/{barname}_menu.json", "w") as json_file:
         json.dump(item_dict, json_file, indent=4)
     print("Bar menu updated.")
 
@@ -78,7 +78,7 @@ def saveFile(bar):
 def loadInfo(barname):
     try:
         #info load
-        with open(f"data/{barname}/{barname}_info.json", "r") as json_file:
+        with open(f"terminal_app/data/{barname}/{barname}_info.json", "r") as json_file:
             bar_info = json.load(json_file)
             barname = bar_info["barname"]
             beerserve = bar_info["beerserve"]
@@ -113,7 +113,7 @@ def loadMenu(bar):
     barname = bar.get_name()
     try:
         #menu load
-        with open(f"data/{barname}/{barname}_menu.json", "r") as json_file:
+        with open(f"terminal_app/data/{barname}/{barname}_menu.json", "r") as json_file:
             item_dict = json.load(json_file)
             for item in item_dict:
                 date = item["date"]
