@@ -66,3 +66,6 @@ The search options are by type, so you can search for beer, wine, spirit or mix,
 - Enter 4 when on the applications main menu.
 - Enter the either the type of items you'd like to see, or "all".
 - The lists will be printed to the terminal.
+
+## Technical Notes
+- When the app is first run, no data folder will exist, however upon making a new bar and saving the first item, the ```saveFile()``` function in functions/file_function.py starting line 9, will create a new data folder and the bar's specific data folder using the os class' ```mkdir()``` method.
