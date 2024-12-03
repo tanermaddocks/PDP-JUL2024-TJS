@@ -1,4 +1,3 @@
-from typing import Any
 from functions.basic import costForm, standardCalc, beerSize, recipePrint
 
 class Beverage:

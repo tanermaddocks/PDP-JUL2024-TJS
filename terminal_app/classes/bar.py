@@ -1,4 +1,4 @@
-from functions.basic import capitalFullString, invalidEntry, valueErrorCheck
+from functions.basic import capitalFullString
 
 class Bar:
     def __init__(self, name, beer_serve, wine_serve):
