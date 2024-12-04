@@ -6,9 +6,10 @@ from functions.basic import valueErrorCheck, confirm, \
                             exitMessage, invalidEntry
 
 
+
 def saveFile(bar):
     barname = bar.get_name()
-    #info save
+    #creates directory if not already existing
     try: 
         os.mkdir(f"terminal_app/data")
     except FileExistsError: 
@@ -17,15 +18,19 @@ def saveFile(bar):
         os.mkdir(f"terminal_app/data/{barname}")
     except FileExistsError: 
         pass
+    #creates a dictionary for the bar info
     bar_info = {
         "barname": bar.get_name(),
         "beerserve": bar.get_beer_serve(),
         "wineserve": bar.get_wine_serve()
         }
+    #opens the json file and dumps bar_info into it
     with open(f"terminal_app/data/{barname}/{barname}_info.json", "w") as json_file:
         json.dump(bar_info, json_file, indent=4)
-    #menu save
+    #creates an empty dict for the bar menu
     item_dict = []
+    #loops through all the different drinks and then if it matches the type of drink it will add the info
+    #appropriate to that drink type to the dict
     for item in bar.get_items():
         if item.get_item_type() == "beer":
             item_json = {
@@ -70,6 +75,7 @@ def saveFile(bar):
                 "recipe": item.get_mix_recipe()
             }
         item_dict.append(item_json)
+    #opens the json file and dumps item_dict into it
     with open(f"terminal_app/data/{barname}/{barname}_menu.json", "w") as json_file:
         json.dump(item_dict, json_file, indent=4)
     print("Bar menu updated.")
@@ -77,7 +83,8 @@ def saveFile(bar):
 
 def loadInfo(barname):
     try:
-        #info load
+        #open the barname info json file and if the file doesnt exist prompts
+        #the user to add a new bar
         with open(f"terminal_app/data/{barname}/{barname}_info.json", "r") as json_file:
             bar_info = json.load(json_file)
             barname = bar_info["barname"]
@@ -87,6 +94,7 @@ def loadInfo(barname):
     except FileNotFoundError:
         print("\nBar not on file, do you want to add a new bar?")
         approve = confirm()
+        #verifies user wants to add a new bar
         if approve:
             print("\nWhat does your bar use as "
                   "a standard beer and wine serve?")
@@ -94,12 +102,14 @@ def loadInfo(barname):
             while x == 0:
                 standard_beer_serve = input(
                     "Choose one of pot, schooner, pint or stein: ")
+                #makes sure the user enters valid input and then breaks the loop if so or else throws error invalidEntry
                 match standard_beer_serve:
                     case "pot": break
                     case "schooner": break
                     case "pint": break
                     case "stein": break
                     case _: invalidEntry
+            #converts user input to int
             standard_wine_serve = int(valueErrorCheck(
                 "Volume of a standard wine glass (in mL): "))
             return Bar(barname, standard_beer_serve, standard_wine_serve)
@@ -112,7 +122,7 @@ def loadInfo(barname):
 def loadMenu(bar):
     barname = bar.get_name()
     try:
-        #menu load
+        #attemps to load the menu json file
         with open(f"terminal_app/data/{barname}/{barname}_menu.json", "r") as json_file:
             item_dict = json.load(json_file)
             for item in item_dict:
@@ -122,6 +132,7 @@ def loadMenu(bar):
                 alc = item["alc"]
                 cost = item["cost"]
                 type = item["type"]
+                #matches the type from the json file to the correct drink type
                 match type:
                     case "beer":
                         serve = item["serve"]
