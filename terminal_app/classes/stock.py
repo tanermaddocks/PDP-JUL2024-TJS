@@ -26,7 +26,7 @@ class Beverage:
     
     def get_item_cost(self):
         return self.cost
-    
+    #test
     def get_item_type(self):
         return self.type
         
