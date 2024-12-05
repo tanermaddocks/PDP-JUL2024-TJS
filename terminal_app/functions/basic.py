@@ -1,5 +1,7 @@
 # Simple functions.
 
+# random is an imported class that creates random data, the method used here is
+# the randint method, which creates a random integer within the chosen parameters
 import random
 
 # mainMenu prints to the terminal the available options for the user to perform.

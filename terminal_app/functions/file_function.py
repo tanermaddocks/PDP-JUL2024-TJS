@@ -1,5 +1,11 @@
+# json is an inbuilt class that is imported to provide management of json
+# documents so that the application can write and read from the json docs
+# in the data directory
 import json 
+# os is an inbuilt class that allows the program to create directories
+# which in this program is used to manage multiple bars
 import os
+
 from classes.bar import Bar
 from classes.stock import Beer, Wine, Spirit, Mix
 from functions.basic import valueErrorCheck, confirm, \

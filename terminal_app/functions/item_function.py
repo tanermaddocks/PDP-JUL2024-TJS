@@ -1,4 +1,7 @@
+# datetime allows the program to provide real time string objects that
+# that represent the date when it is called on
 import datetime
+
 from classes.stock import Beer, Wine, Spirit, Mix
 from functions.basic import capitalFullString, valueErrorCheck,\
                             confirm, wrongChoice, costForm, codeMaker, \
