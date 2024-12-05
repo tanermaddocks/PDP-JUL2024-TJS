@@ -45,8 +45,10 @@ class Bar:
         # find item code and name
         if target[:2] == "00":
             target = "#" + target
+            #  properly formats user input
         all_items = bar.get_items()
         for item in all_items:
+            # searches by name or item code
             if target[0] == "#":
                 if item.get_item_code() == target:
                     return item
@@ -57,7 +59,9 @@ class Bar:
         # if none found
         else: 
             return False
+            # return either a boolean or the item object
 
+    # deletes an item from the bar using its item code
     def delete_item(self, item_code):
         new_menu = []
         deleted = False
@@ -67,6 +71,9 @@ class Bar:
             else: deleted = True
         self.items = new_menu
         return deleted
+        # return a boolean value which is used to confirm deletion
 
+    # used to retrieve all items
     def get_items(self):
         return self.items
+        # return full item dictionary
