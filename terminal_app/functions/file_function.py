@@ -6,7 +6,8 @@ from functions.basic import valueErrorCheck, confirm, \
                             exitMessage, invalidEntry
 
 
-
+# used to either create or writeover a json file, will also create the data
+# and child directories if they do not exist already
 def saveFile(bar):
     barname = bar.get_name()
     #creates directory if not already existing
