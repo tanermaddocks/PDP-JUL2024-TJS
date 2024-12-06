@@ -50,7 +50,7 @@ def capitalFullString(string):
     # each word capitalised.
 
 
-# codeMaker performs two essential task, it first creates a random code
+# codeMaker performs two essential tasks, it first creates a random code
 # to be used as an item code, and then checks whether the code is in use,
 # if it is, it produces a new random code until it finds one not in use.
 def codeMaker(bar):
