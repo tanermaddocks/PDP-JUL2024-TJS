@@ -8,12 +8,10 @@ class Bar:
         self.wine_serve = wine_serve
         self.items = []
 
-    #if bar is called it will return the following string
+    # if bar is called it will return the name of the bar 
+    # in a user friendly formate
     def __str__(self) -> str:
-        name = self.name.split("_")
-        name = " ".join(name)
-        name = capitalFullString(name)
-        return name
+        return capitalFullString(" ".join(self.name.split("_")))
     	
     #returns the name of the bar
     def get_name(self):
