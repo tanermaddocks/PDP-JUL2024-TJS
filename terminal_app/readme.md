@@ -67,5 +67,24 @@ The search options are by type, so you can search for beer, wine, spirit or mix,
 - Enter the either the type of items you'd like to see, or "all".
 - The lists will be printed to the terminal.
 
+## Classes, Class Methods
+### Classes
+- **Bar class**: This class is used to define and access the stored values that the terminal application uses. It's variables include name (str), beer_serve (str), wine_serve (int) and items (list). All of these variables are specifically in reference to a single bar in the context of the application. The bar class has a \__str__ method and several getter and setter methods. It also has the following methods attached:
+    - add_item: Used to append stock items to the items list variable.
+    - search_item: Used to filter through the items variable and then display one result.
+    - delete_item: Used to filter through and remove a single item from the items variable.
+
+- **Stock class**: The stock class and its subclasses, Beer, Wine, Spirit and Mix, are all used to define and access dictionary items containted within the items variable in the Bar class. All of the methods in these classes are \__str__ and getter methods which serve to display or retrieve variable data. The variables used in the Stock class are as follows:
+    - date: When the item is added.
+    - code: A randomly generated item code.
+    - name: The name of the item.
+    - alc: The alcohol content of the item, is a percentage, except in Mix, where it is a standard drink value.
+    - cost: The cost to buy the item.
+    - type: The category of the item; beer, wine etc.
+    - serve: The serving size of the item, represents a mL value.
+    - mixed: indicates if an item is a mix.
+    - subtype: The more complex category an item belongs to; vodka, rum etc. Exclusive to the Spirit class.
+    - recipe: Is a list item that contains a list that has each name and mL of item used in a mix object.
+
 ## Technical Notes
 - When the app is first run, no data folder will exist, however upon making a new bar and saving the first item, the ```saveFile()``` function in functions/file_function.py starting line 9, will create a new data folder and the bar's specific data folder using the os class' ```mkdir()``` method.
