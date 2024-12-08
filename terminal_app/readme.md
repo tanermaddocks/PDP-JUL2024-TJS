@@ -15,6 +15,43 @@ The application does not require any installed packages and uses the following f
 - datetime in function/item_function.py
 - random in function/basic.py
 
+#### ***What are Dependencies?***  
+
+**Dependencies**- Relationships between pieces of software in which one piece of software relies upon another in order to function as intended. 
+
+Dependencies can be external, relying on a third party, or internal - software dependencies existing within software.
+
+Common examples of dependencies are libraries and frameworks used by programmes. 
+
+Software dependencies are either direct or transitive.
+*Direct dependency* - a dependency explicitly defined and used by a piece of software. 
+*Transitive dependency* - library or module indirectly use by a software component.
+
+Listing dependencies for a program is extremely important for Python development. 
+Doing ensures a consistent testing and development environment.
+
+
+#### ***JSON***
+
+JSON is a data format.
+
+Data with JSON formatting consists of a series of key value pairs. 
+
+Mostly, the key is represented by a string and the value as one of several types such as a string, number, boolean etc. 
+
+JSON is simple and language independent so supports many different data types.
+ It is easily shared between different programmes. 
+
+This makes JSON an ideal format for storing and retrieving configuration settings such as in this app. 
+
+#### ***Modules Used***
+
+This app uses the os, datetime and random modules packaged with Python.
+*os* allows for using functions dependent on operating systems.
+*datetime* provides classes to manipulate dates and times.
+*random* implements pseudo-random number generators. 
+
+
 ### First Use
 
 In order to start using the application, run the application from the terminal using "main.py" and follow the below steps:
@@ -23,6 +60,7 @@ In order to start using the application, run the application from the terminal u
     - For beer you will have a selection of commonly used beer glass sizes (pot, schooner, etc.)
     - For wine you will enter a standard serve in millilitres.
 - Now that you've entered the information relevant to your bar, you can begin to enter items into your bar's menu.
+
 - **The bar's info and menu will not be saved until an item is added.**
 
 The application can be modified to only handle one bar's information using the following steps:
@@ -74,7 +112,7 @@ The search options are by type, so you can search for beer, wine, spirit or mix,
     - search_item: Used to filter through the items variable and then display one result.
     - delete_item: Used to filter through and remove a single item from the items variable.
 
-- **Stock class**: The stock class and its subclasses, Beer, Wine, Spirit and Mix, are all used to define and access dictionary items containted within the items variable in the Bar class. All of the methods in these classes are \__str__ and getter methods which serve to display or retrieve variable data. The variables used in the Stock class are as follows:
+- **Stock class**: The stock class and its subclasses, Beer, Wine, Spirit and Mix, are all used to define and access dictionary items contained within the items variable in the Bar class. All of the methods in these classes are \__str__ and getter methods which serve to display or retrieve variable data. The variables used in the Stock class are as follows:
     - date: When the item is added.
     - code: A randomly generated item code.
     - name: The name of the item.
@@ -88,3 +126,5 @@ The search options are by type, so you can search for beer, wine, spirit or mix,
 
 ## Technical Notes
 - When the app is first run, no data folder will exist, however upon making a new bar and saving the first item, the ```saveFile()``` function in functions/file_function.py starting line 9, will create a new data folder and the bar's specific data folder using the os class' ```mkdir()``` method.
+
+- mkdir is a terminal command used to create a new directory or folder. 
